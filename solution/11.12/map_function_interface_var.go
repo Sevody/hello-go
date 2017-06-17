@@ -15,21 +15,19 @@ func main() {
 		return i
 	}
 
-	is1 := []obj{0, 1, 2, 3, 4, 5}
-	res1 := mapFunc(mf, is1)
+	res1 := mapFunc(mf, 0, 1, 2, 3, 4, 5)
 	for _, v := range res1 {
 		fmt.Println(v)
 	}
 	println()
 
-	ss1 := []obj{"0", "1", "2", "3", "4", "5"}
-	res2 := mapFunc(mf, ss1)
+	res2 := mapFunc(mf, "0", "1", "2", "3", "4", "5")
 	for _, v := range res2 {
 		fmt.Println(v)
 	}
 }
 
-func mapFunc(mf func(obj) obj, list []obj) []obj {
+func mapFunc(mf func(obj) obj, list ...obj) []obj {
 	result := make([]obj, len(list))
 	for ix, v := range list {
 		result[ix] = mf(v)
